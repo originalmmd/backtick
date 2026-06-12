@@ -18,9 +18,10 @@ jobs:
           libayatana-appindicator3-dev librsvg2-dev
           libssl-dev libjavascriptcoregtk-4.1-dev
           pkg-config
-      - uses: dtolnay/rust-toolchain@master
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           components: clippy, rustfmt
+          project-path: src-tauri
       - run: cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings
       - run: cargo fmt --manifest-path src-tauri/Cargo.toml --check
       - uses: actions/setup-node@v4
@@ -42,7 +43,9 @@ jobs:
           libayatana-appindicator3-dev librsvg2-dev
           libssl-dev libjavascriptcoregtk-4.1-dev
           pkg-config
-      - uses: dtolnay/rust-toolchain@master
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          project-path: src-tauri
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
