@@ -35,7 +35,9 @@ pub fn run() {
         .setup(|app| {
             let args: Vec<String> = std::env::args().collect();
             let initial = args.get(1).filter(|p| !p.starts_with('-')).cloned();
-            app.manage(Mutex::new(AppState { initial_path: initial }));
+            app.manage(Mutex::new(AppState {
+                initial_path: initial,
+            }));
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![read_file, get_initial_path])
