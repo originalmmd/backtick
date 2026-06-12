@@ -1,0 +1,7 @@
+BUILD_PLAN.md
+node_modules/
+dist/
+src-tauri/target/
+*.log
+.DS_Store
+Thumbs.db

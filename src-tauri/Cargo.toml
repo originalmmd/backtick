@@ -1,0 +1,22 @@
+[package]
+name = "backtick"
+version = "0.1.0"
+edition = "2021"
+description = "A razor-sharp Markdown document reader"
+
+[lib]
+name = "backtick_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2.11", features = [] }
+tauri-plugin-shell = "2.3"
+tauri-plugin-single-instance = "2.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dependencies.time]
+version = "=0.3.36"

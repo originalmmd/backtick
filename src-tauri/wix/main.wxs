@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="ContextMenuEntries">
+      <Component Directory="INSTALLDIR" Win64="yes">
+        <RegistryValue Root="HKCR" Key="*\shell\Read with Backtick"
+                       Value="Read with Backtick" Type="string" />
+        <RegistryValue Root="HKCR" Key="*\shell\Read with Backtick\command"
+                       Value="&quot;[INSTALLDIR]Backtick.exe&quot; &quot;%1&quot;" Type="string" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
