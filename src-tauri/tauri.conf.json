@@ -50,9 +50,7 @@
       }
     },
     "windows": {
-      "wix": {
-        "template": "wix/main.wxs"
-      }
+      "wix": null
     }
   }
 }
