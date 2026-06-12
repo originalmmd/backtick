@@ -22,8 +22,7 @@ appWindow.listen('single-instance', (event) => {
   if (path) openFile(path);
 });
 
-const params = new URLSearchParams(window.location.search);
-const cliArg = params.get('file');
-if (cliArg) {
-  openFile(cliArg);
-}
+(async () => {
+  const path = await invoke('get_initial_path');
+  if (path) openFile(path);
+})();
