@@ -29,32 +29,32 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0d1117;
-  --text: #c9d1d9;
-  --text-muted: #8b949e;
-  --text-subtle: #484f58;
-  --heading: #e6edf3;
-  --heading-border: #21262d;
-  --link: #58a6ff;
-  --blockquote-border: #58a6ff;
-  --blockquote-text: #8b949e;
-  --hr-color: #21262d;
-  --table-border: #30363d;
-  --table-header-bg: #161b22;
-  --code-bg: rgba(240,246,252,0.08);
-  --pre-bg: #161b22;
-  --pre-text: #c9d1d9;
-  --btn-bg: #c9d1d9;
-  --btn-text: #0d1117;
-  --btn-hover: #b1bac4;
-  --btn-active: #8b949e;
-  --drop-bg: rgba(13,17,23,0.9);
-  --drop-text: #c9d1d9;
-  --settings-icon: #8b949e;
-  --settings-icon-hover: #c9d1d9;
-  --settings-panel-bg: #161b22;
-  --settings-panel-border: #30363d;
-  --settings-panel-shadow: rgba(0,0,0,0.3);
+  --bg: #1e1e1e;
+  --text: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --text-subtle: #707070;
+  --heading: #ffffff;
+  --heading-border: #333333;
+  --link: #3eb489;
+  --blockquote-border: #3eb489;
+  --blockquote-text: #a0a0a0;
+  --hr-color: #333333;
+  --table-border: #333333;
+  --table-header-bg: #252525;
+  --code-bg: rgba(255,255,255,0.05);
+  --pre-bg: #161616;
+  --pre-text: #e0e0e0;
+  --btn-bg: #3eb489;
+  --btn-text: #ffffff;
+  --btn-hover: #35a37c;
+  --btn-active: #2d8f6a;
+  --drop-bg: rgba(30,30,30,0.9);
+  --drop-text: #ffffff;
+  --settings-icon: #a0a0a0;
+  --settings-icon-hover: #ffffff;
+  --settings-panel-bg: #252525;
+  --settings-panel-border: #333333;
+  --settings-panel-shadow: rgba(0,0,0,0.4);
   --hljs-theme: 'github-dark';
 }
 
