@@ -20,9 +20,8 @@ jobs:
           libayatana-appindicator3-dev librsvg2-dev
           libssl-dev libjavascriptcoregtk-4.1-dev
           pkg-config
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          project-path: src-tauri
+      - name: Install Rust toolchain
+        run: rustup update stable
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
@@ -32,7 +31,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: bundles-${{ runner.os }}
-          path: src-tauri/target/release/bundle/**/*
+          path: |
+            src-tauri/target/release/bundle/**/*.deb
+            src-tauri/target/release/bundle/**/*.rpm
+            src-tauri/target/release/bundle/**/*.AppImage
+            src-tauri/target/release/bundle/**/*.dmg
+            src-tauri/target/release/bundle/**/*.msi
+            src-tauri/target/release/bundle/**/*.exe
 
   create-release:
     needs: build
@@ -48,5 +53,5 @@ jobs:
           merge-multiple: true
       - uses: softprops/action-gh-release@v2
         with:
-          files: artifacts/**
+          files: artifacts/*
           generate_release_notes: true
