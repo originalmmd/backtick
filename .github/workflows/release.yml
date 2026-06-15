@@ -28,6 +28,30 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+      - name: Inject postinst into .deb
+        if: runner.os == 'Linux'
+        run: |
+          shopt -s nullglob
+          for deb in src-tauri/target/release/bundle/deb/*.deb; do
+            echo "Injecting postinst into $deb"
+            tmpdir=$(mktemp -d)
+            ar x "$deb" --output="$tmpdir"
+            cd "$tmpdir"
+            extracted=$(mktemp -d)
+            tar -xf control.tar.xz -C "$extracted"
+            if [ ! -f "$extracted/postinst" ]; then
+              cp "$GITHUB_WORKSPACE/src-tauri/gen/deb/postinst" "$extracted/postinst"
+              chmod 755 "$extracted/postinst"
+              cd "$extracted"
+              tar -cJf "$tmpdir/control.tar.xz" .
+              cd "$GITHUB_WORKSPACE"
+              ar rcs "$deb" "$tmpdir/debian-binary" "$tmpdir/control.tar.xz" "$tmpdir/data.tar.xz"
+              echo "  postinst injected successfully"
+            else
+              echo "  postinst already present"
+            fi
+            rm -rf "$tmpdir" "$extracted"
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: bundles-${{ runner.os }}
