@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Utility;TextEditor;
+Comment=A razor-sharp Markdown document reader
+Exec=backtick %U
+Icon=backtick
+MimeType=text/markdown;
+Name=Backtick
+StartupNotify=true
+Terminal=false
+Type=Application

@@ -36,15 +36,21 @@
     "fileAssociations": [
       {
         "ext": ["md", "markdown", "mdown", "mkd"],
+        "mimeType": "text/markdown",
         "name": "markdown",
         "description": "Markdown Document",
         "role": "Editor"
       }
     ],
-    "windows": {
-      "wix": {
-        "template": "wix/main.wxs"
+    "linux": {
+      "deb": {
+        "files": {
+          "/usr/share/applications/backtick.desktop": "gen/deb/backtick.desktop"
+        }
       }
+    },
+    "windows": {
+      "wix": null
     }
   }
 }
