@@ -42,6 +42,51 @@ body {
   margin-top: 0.5rem;
 }
 
+#loading .drop-hint {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-top: 0.75rem;
+  font-weight: 400;
+}
+
+.open-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  background: #1a1a2e;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.open-btn:hover {
+  background: #2d2d4a;
+}
+
+.open-btn:active {
+  background: #0f0f1e;
+}
+
+.drop-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.85);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.drop-overlay.visible {
+  display: flex;
+}
+
 #content {
   display: none;
 }

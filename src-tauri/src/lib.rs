@@ -32,6 +32,7 @@ pub fn run() {
                 let _ = win.emit("single-instance", path);
             }
         }))
+        .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             let args: Vec<String> = std::env::args().collect();
             let initial = args.get(1).filter(|p| !p.starts_with('-')).cloned();
