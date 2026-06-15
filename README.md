@@ -2,6 +2,8 @@
 
 > A razor-sharp, zero-bloat Markdown document reader. You open a file, it renders it perfectly. That's it.
 
+[Latest Release](https://github.com/originalmmd/backtick/releases/latest) · [Download Example](https://raw.githubusercontent.com/originalmmd/backtick/main/example.md)
+
 Backtick is an uncompromisingly minimal desktop utility built for developers, writers, and technical readers who need a fast, standalone way to view `.md` files without spinning up a heavy IDE or a resource-hogging Electron wrapper.
 
 ---

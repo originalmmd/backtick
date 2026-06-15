@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="system">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
+    <div class="settings-bar">
+      <button id="settings-btn" class="settings-btn" title="Settings">&#9881;</button>
+      <div id="settings-panel" class="settings-panel">
+        <label for="theme-select">Color Scheme</label>
+        <select id="theme-select" class="theme-select">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </div>
     <div id="app">
       <div id="loading">
         <p>Backtick</p>

@@ -1,7 +1,7 @@
 import { invoke } from '@tauri-apps/api/core';
 import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 import { open } from '@tauri-apps/plugin-dialog';
-import { render } from './renderer.js';
+import { render, applyTheme, initTheme } from './renderer.js';
 
 const appWindow = getCurrentWebviewWindow();
 
@@ -51,6 +51,29 @@ appWindow.onDragDropEvent((event) => {
     overlay.classList.remove('visible');
   }
 });
+
+const settingsBtn = document.getElementById('settings-btn');
+const settingsPanel = document.getElementById('settings-panel');
+const themeSelect = document.getElementById('theme-select');
+
+settingsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  settingsPanel.classList.toggle('visible');
+});
+
+document.addEventListener('click', (e) => {
+  if (!settingsPanel.contains(e.target) && e.target !== settingsBtn) {
+    settingsPanel.classList.remove('visible');
+  }
+});
+
+themeSelect.addEventListener('change', (e) => {
+  localStorage.setItem('bt-theme', e.target.value);
+  applyTheme();
+});
+
+initTheme();
+themeSelect.value = localStorage.getItem('bt-theme') || 'system';
 
 (async () => {
   const path = await invoke('get_initial_path');

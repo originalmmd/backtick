@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
@@ -28,6 +29,49 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+      - name: Inject postinst into .deb
+        if: runner.os == 'Linux'
+        run: |
+          shopt -s nullglob
+          for deb in src-tauri/target/release/bundle/deb/*.deb; do
+            echo "Injecting postinst into $deb"
+            tmpdir=$(mktemp -d)
+            ar x "$deb" --output="$tmpdir"
+            ls "$tmpdir"
+            extracted=$(mktemp -d)
+            ctrl=""
+            for f in "$tmpdir"/control.tar.*; do
+              [ -f "$f" ] && ctrl="$f" && break
+            done
+            if [ -z "$ctrl" ]; then
+              echo "  ERROR: no control archive found in deb"
+              rm -rf "$tmpdir" "$extracted"
+              continue
+            fi
+            echo "  Found control archive: $(basename $ctrl)"
+            case "$ctrl" in
+              *.xz) tar -xJf "$ctrl" -C "$extracted" ;;
+              *.zst) tar --zstd -xf "$ctrl" -C "$extracted" ;;
+              *.gz) tar -xzf "$ctrl" -C "$extracted" ;;
+              *) tar -xf "$ctrl" -C "$extracted" ;;
+            esac
+            if [ ! -f "$extracted/postinst" ]; then
+              cp "$GITHUB_WORKSPACE/src-tauri/gen/deb/postinst" "$extracted/postinst"
+              chmod 755 "$extracted/postinst"
+              cd "$extracted"
+              case "$ctrl" in
+                *.xz) tar -cJf "$ctrl" . ;;
+                *.zst) tar --zstd -cf "$ctrl" . ;;
+                *.gz) tar -czf "$ctrl" . ;;
+                *) tar -cf "$ctrl" . ;;
+              esac
+              cd "$GITHUB_WORKSPACE"
+              echo "  postinst injected successfully"
+            else
+              echo "  postinst already present"
+            fi
+            rm -rf "$tmpdir" "$extracted"
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: bundles-${{ runner.os }}

@@ -1,12 +1,11 @@
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/github-dark.css';
 import mermaid from 'mermaid';
 
 mermaid.initialize({
   startOnLoad: false,
-  theme: 'default',
+  theme: 'base',
   securityLevel: 'loose',
 });
 
@@ -16,6 +15,38 @@ marked.setOptions({
   smartLists: true,
   smartypants: true,
 });
+
+const LIGHT_THEME = 'highlight.js/styles/github.css';
+const DARK_THEME = 'highlight.js/styles/github-dark.css';
+
+function getHighlightTheme(mode) {
+  const saved = localStorage.getItem('bt-theme') || 'system';
+  if (saved === 'light') return LIGHT_THEME;
+  if (saved === 'dark') return DARK_THEME;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK_THEME : LIGHT_THEME;
+}
+
+function isDarkTheme() {
+  const saved = localStorage.getItem('bt-theme') || 'system';
+  if (saved === 'dark') return true;
+  if (saved === 'light') return false;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+function loadHighlightTheme() {
+  let link = document.getElementById('hljs-theme');
+  if (!link) {
+    link = document.createElement('link');
+    link.id = 'hljs-theme';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }
+  link.href = getHighlightTheme();
+}
+
+export function getMermaidTheme() {
+  return isDarkTheme() ? 'dark' : 'default';
+}
 
 export function render(markdown) {
   const rawHtml = marked.parse(markdown);
@@ -31,6 +62,40 @@ export function render(markdown) {
 
   renderMermaid();
   renderHighlighting();
+}
+
+export function applyTheme() {
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('bt-theme') || 'system');
+  loadHighlightTheme();
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    themeVariables: isDarkTheme() ? {
+      background: '#0d1117',
+      primaryColor: '#58a6ff',
+      primaryTextColor: '#c9d1d9',
+      primaryBorderColor: '#30363d',
+      lineColor: '#8b949e',
+      secondaryColor: '#161b22',
+      tertiaryColor: '#21262d',
+    } : {
+      background: '#fafafa',
+      primaryColor: '#0366d6',
+      primaryTextColor: '#1a1a2e',
+      primaryBorderColor: '#d1d5da',
+      lineColor: '#666',
+      secondaryColor: '#f6f8fa',
+      tertiaryColor: '#eaecef',
+    },
+    securityLevel: 'loose',
+  });
+}
+
+export function initTheme() {
+  if (!localStorage.getItem('bt-theme')) {
+    localStorage.setItem('bt-theme', 'system');
+  }
+  applyTheme();
 }
 
 function renderMermaid() {
@@ -57,3 +122,10 @@ function renderHighlighting() {
     hljs.highlightElement(block);
   });
 }
+
+let mq = window.matchMedia('(prefers-color-scheme: dark)');
+mq.addEventListener('change', () => {
+  if (localStorage.getItem('bt-theme') === 'system') {
+    applyTheme();
+  }
+});
