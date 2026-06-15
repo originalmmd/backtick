@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --buildsystem=none
+
+override_dh_auto_build:
+	cd src-tauri && cargo build --release
+	npm install
+	cd src-tauri && cargo tauri build --no-bundle
+
+override_dh_auto_install:
+	install -D -m 0755 src-tauri/target/release/backtick debian/backtick/usr/bin/backtick
+	install -D -m 0644 src-tauri/gen/deb/backtick.desktop debian/backtick/usr/share/applications/backtick.desktop
+	install -D -m 0644 src-tauri/icons/128x128.png debian/backtick/usr/share/icons/hicolor/128x128/apps/backtick.png
+	install -D -m 0644 src-tauri/icons/128x128@2x.png debian/backtick/usr/share/icons/hicolor/256x256/apps/backtick.png
+
+override_dh_strip:
+	dh_strip --exclude=.cargo
+
+override_dh_shlibdeps:
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info

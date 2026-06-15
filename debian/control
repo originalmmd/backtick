@@ -1,0 +1,48 @@
+Source: backtick
+Section: editors
+Priority: optional
+Maintainer: Robin <robin@originalmmd.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ cargo,
+ rustc,
+ nodejs,
+ npm,
+ libwebkit2gtk-4.1-dev,
+ libgtk-3-dev,
+ libayatana-appindicator3-dev,
+ librsvg2-dev,
+ libssl-dev,
+ libjavascriptcoregtk-4.1-dev,
+ pkg-config,
+ openssl
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://github.com/originalmmd/backtick
+Vcs-Git: https://github.com/originalmmd/backtick.git
+Vcs-Browser: https://github.com/originalmmd/backtick
+
+Package: backtick
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libwebkit2gtk-4.1-0,
+ libgtk-3-0,
+ libayatana-appindicator3-1
+Description: A razor-sharp Markdown document reader
+ Backtick is an uncompromisingly minimal desktop utility built for
+ developers, writers, and technical readers who need a fast, standalone
+ way to view .md files without spinning up a heavy IDE or a
+ resource-hogging Electron wrapper.
+ .
+ Built on Tauri, Backtick pairs a high-performance Rust backend with
+ the operating system's native Webview rendering engine, resulting in
+ a tiny binary size, near-zero RAM footprint, and instant startup.
+ .
+ Features:
+  - Syntax highlighting for code blocks
+  - Mermaid diagram rendering
+  - Dark mode with Ubuntu-inspired color scheme
+  - File associations and context menu integration
+  - 100% offline, no analytics, MIT licensed
