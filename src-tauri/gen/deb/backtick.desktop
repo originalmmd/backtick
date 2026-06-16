@@ -8,3 +8,9 @@ Name=Backtick
 StartupNotify=true
 Terminal=false
 Type=Application
+Actions=ReadWithBacktick;
+
+[Desktop Action ReadWithBacktick]
+Name=Read with Backtick
+Exec=backtick %f
+Icon=backtick

@@ -22,6 +22,33 @@ fn get_initial_path(state: tauri::State<'_, Mutex<AppState>>) -> Option<String> 
     state.lock().ok()?.initial_path.take()
 }
 
+#[cfg(windows)]
+fn register_context_menu() {
+    let exe = std::env::current_exe().ok().unwrap_or_default();
+    if !exe.exists() {
+        return;
+    }
+    let exe_path = exe.to_string_lossy().replace('/', "\\");
+    let exe_cmd = format!("\"{}\" \"%1\"", exe_path);
+    let extensions = ["md", "markdown", "mdown", "mkd"];
+    let base = r"Software\Classes";
+
+    if let Ok(classes) = winreg::RegKey::predef(winreg::enums::HKEY_CURRENT_USER)
+        .open_subkey_with_flags(base, winreg::enums::KEY_READ | winreg::enums::KEY_WRITE)
+    {
+        for ext in &extensions {
+            let label_path = format!(".{}\\shell\\Read with Backtick", ext);
+            let cmd_path = format!("{}\\command", label_path);
+            if let Ok(key) = classes.create_subkey(&label_path) {
+                let _ = key.0.set_value("", &"Read with Backtick");
+            }
+            if let Ok(key) = classes.create_subkey(&cmd_path) {
+                let _ = key.0.set_value("", &exe_cmd);
+            }
+        }
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -34,6 +61,8 @@ pub fn run() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
+            #[cfg(windows)]
+            register_context_menu();
             let args: Vec<String> = std::env::args().collect();
             let initial = args.get(1).filter(|p| !p.starts_with('-')).cloned();
             app.manage(Mutex::new(AppState {

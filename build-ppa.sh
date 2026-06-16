@@ -10,13 +10,17 @@ if [ ! -f "debian/control" ]; then
     exit 1
 fi
 
+# Default Ubuntu series
+SERIES="${1:-noble}"
+PPA_NAME="backtick-md"
+
 # Get version from Cargo.toml
 VERSION=$(grep '^version = ' src-tauri/Cargo.toml | cut -d'"' -f2)
-echo "Building version: $VERSION"
+echo "Building version: $VERSION for $SERIES"
 
-# Update changelog with current version
+# Update changelog with current version and series
 cat > debian/changelog <<EOF
-backtick ($VERSION-1) unstable; urgency=medium
+backtick ($VERSION-1) $SERIES; urgency=medium
 
   * Release $VERSION
   * See https://github.com/originalmmd/backtick/releases/tag/v$VERSION
@@ -37,6 +41,9 @@ echo "Source package created in ../"
 echo ""
 echo "To upload to PPA:"
 echo "  cd .."
-echo "  dput ppa:yourname/backtick backtick_${VERSION}-1_source.changes"
+echo "  dput ppa:originalmmd/$PPA_NAME backtick_${VERSION}-1_source.changes"
 echo ""
-echo "Replace 'yourname' with your Launchpad username."
+echo "Note: Replace the series if targeting a different Ubuntu release."
+echo "  Usage: ./build-ppa.sh [series]"
+echo "  Example: ./build-ppa.sh noble    # Ubuntu 24.04"
+echo "  Example: ./build-ppa.sh oracular # Ubuntu 24.10"

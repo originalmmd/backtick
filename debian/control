@@ -29,7 +29,10 @@ Depends:
  ${misc:Depends},
  libwebkit2gtk-4.1-0,
  libgtk-3-0,
- libayatana-appindicator3-1
+ libayatana-appindicator3-1,
+ shared-mime-info,
+ xdg-utils,
+ desktop-file-utils
 Description: A razor-sharp Markdown document reader
  Backtick is an uncompromisingly minimal desktop utility built for
  developers, writers, and technical readers who need a fast, standalone

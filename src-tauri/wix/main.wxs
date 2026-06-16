@@ -2,10 +2,28 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="ContextMenuEntries">
-      <Component Directory="INSTALLDIR" Win64="yes">
-        <RegistryValue Root="HKCR" Key="*\shell\Read with Backtick"
+      <Component Id="CtxMd" Directory="INSTALLDIR" Win64="yes" Guid="*">
+        <RegistryValue Root="HKCR" Key=".md\shell\Read with Backtick"
                        Value="Read with Backtick" Type="string" />
-        <RegistryValue Root="HKCR" Key="*\shell\Read with Backtick\command"
+        <RegistryValue Root="HKCR" Key=".md\shell\Read with Backtick\command"
+                       Value="&quot;[INSTALLDIR]Backtick.exe&quot; &quot;%1&quot;" Type="string" />
+      </Component>
+      <Component Id="CtxMarkdown" Directory="INSTALLDIR" Win64="yes" Guid="*">
+        <RegistryValue Root="HKCR" Key=".markdown\shell\Read with Backtick"
+                       Value="Read with Backtick" Type="string" />
+        <RegistryValue Root="HKCR" Key=".markdown\shell\Read with Backtick\command"
+                       Value="&quot;[INSTALLDIR]Backtick.exe&quot; &quot;%1&quot;" Type="string" />
+      </Component>
+      <Component Id="CtxMdown" Directory="INSTALLDIR" Win64="yes" Guid="*">
+        <RegistryValue Root="HKCR" Key=".mdown\shell\Read with Backtick"
+                       Value="Read with Backtick" Type="string" />
+        <RegistryValue Root="HKCR" Key=".mdown\shell\Read with Backtick\command"
+                       Value="&quot;[INSTALLDIR]Backtick.exe&quot; &quot;%1&quot;" Type="string" />
+      </Component>
+      <Component Id="CtxMkd" Directory="INSTALLDIR" Win64="yes" Guid="*">
+        <RegistryValue Root="HKCR" Key=".mkd\shell\Read with Backtick"
+                       Value="Read with Backtick" Type="string" />
+        <RegistryValue Root="HKCR" Key=".mkd\shell\Read with Backtick\command"
                        Value="&quot;[INSTALLDIR]Backtick.exe&quot; &quot;%1&quot;" Type="string" />
       </Component>
     </ComponentGroup>

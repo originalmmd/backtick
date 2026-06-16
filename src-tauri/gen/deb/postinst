@@ -2,3 +2,4 @@
 set -e
 update-desktop-database -q /usr/share/applications 2>/dev/null || true
 xdg-mime default backtick.desktop text/markdown 2>/dev/null || true
+update-mime-database /usr/share/mime 2>/dev/null || true

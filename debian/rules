@@ -11,6 +11,7 @@ override_dh_auto_build:
 override_dh_auto_install:
 	install -D -m 0755 src-tauri/target/release/backtick debian/backtick/usr/bin/backtick
 	install -D -m 0644 src-tauri/gen/deb/backtick.desktop debian/backtick/usr/share/applications/backtick.desktop
+	install -D -m 0644 src-tauri/gen/kio/servicemenus/backtick.desktop debian/backtick/usr/share/kio/servicemenus/backtick.desktop
 	install -D -m 0644 src-tauri/icons/128x128.png debian/backtick/usr/share/icons/hicolor/128x128/apps/backtick.png
 	install -D -m 0644 src-tauri/icons/128x128@2x.png debian/backtick/usr/share/icons/hicolor/256x256/apps/backtick.png
 

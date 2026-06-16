@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=text/markdown;text/plain;
+Actions=ReadWithBacktick;
+
+[Desktop Action ReadWithBacktick]
+Name=Read with Backtick
+Exec=backtick %f
+Icon=backtick
