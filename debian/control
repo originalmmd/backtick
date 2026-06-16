@@ -1,7 +1,7 @@
 Source: backtick
 Section: editors
 Priority: optional
-Maintainer: Robin <robin@originalmmd.com>
+Maintainer: Robin <originalmmd@gmail.com>
 Build-Depends:
  debhelper-compat (= 13),
  cargo,

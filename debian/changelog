@@ -1,9 +1,7 @@
 backtick (0.2.2-1) noble; urgency=medium
 
-  * Initial release for PPA packaging
-  * Ubuntu-inspired dark theme with teal accent
-  * Example Markdown file with all rendering features
-  * Post-installation script for desktop database update
-  * File association for .md files
+  * Release 0.2.2
+  * See https://github.com/originalmmd/backtick/releases/tag/v0.2.2
 
- -- Robin <robin@originalmmd.com>  Mon, 15 Jun 2026 14:00:00 +0000
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 11:43:45 +0200
+
