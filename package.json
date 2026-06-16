@@ -1,7 +1,7 @@
 {
   "name": "backtick",
   "private": true,
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A razor-sharp, zero-bloat Markdown document reader built on Tauri",
   "type": "module",
   "scripts": {

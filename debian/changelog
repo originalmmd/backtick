@@ -1,10 +1,13 @@
+backtick (0.2.3-1) noble; urgency=medium
+
+  * Release 0.2.3
+  * Fix WiX bundle configuration (fragment-paths -> fragmentPaths)
+  * Add community guides, tests, and project polish
+  * See https://github.com/originalmmd/backtick/releases/tag/v0.2.3
+
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 16:15:00 +0200
+
 backtick (0.2.2-1build1) noble; urgency=medium
-
-  * Regenerate Cargo.lock with Rust 1.75.0 for Noble compatibility
-
- -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 14:00:00 +0200
-
-backtick (0.2.2-1) resolute; urgency=medium
 
   * Release 0.2.2
   * See https://github.com/originalmmd/backtick/releases/tag/v0.2.2
