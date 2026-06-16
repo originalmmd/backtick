@@ -11,24 +11,24 @@
   --hr-color: #eaecef;
   --table-border: #d1d5da;
   --table-header-bg: #f6f8fa;
-  --code-bg: rgba(27,31,35,0.05);
+  --code-bg: rgba(27, 31, 35, 0.05);
   --pre-bg: #0d1117;
   --pre-text: #c9d1d9;
   --btn-bg: #1a1a2e;
   --btn-text: #fff;
   --btn-hover: #2d2d4a;
   --btn-active: #0f0f1e;
-  --drop-bg: rgba(26,26,46,0.85);
+  --drop-bg: rgba(26, 26, 46, 0.85);
   --drop-text: #fff;
   --settings-icon: #999;
   --settings-icon-hover: #1a1a2e;
   --settings-panel-bg: #fff;
   --settings-panel-border: #eaecef;
-  --settings-panel-shadow: rgba(0,0,0,0.1);
+  --settings-panel-shadow: rgba(0, 0, 0, 0.1);
   --hljs-theme: 'github-dark';
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --bg: #1e1e1e;
   --text: #e0e0e0;
   --text-muted: #a0a0a0;
@@ -41,29 +41,29 @@
   --hr-color: #333333;
   --table-border: #333333;
   --table-header-bg: #252525;
-  --code-bg: rgba(255,255,255,0.05);
+  --code-bg: rgba(255, 255, 255, 0.05);
   --pre-bg: #161616;
   --pre-text: #e0e0e0;
   --btn-bg: #3eb489;
   --btn-text: #ffffff;
   --btn-hover: #35a37c;
   --btn-active: #2d8f6a;
-  --drop-bg: rgba(30,30,30,0.9);
+  --drop-bg: rgba(30, 30, 30, 0.9);
   --drop-text: #ffffff;
   --settings-icon: #a0a0a0;
   --settings-icon-hover: #ffffff;
   --settings-panel-bg: #252525;
   --settings-panel-border: #333333;
-  --settings-panel-shadow: rgba(0,0,0,0.4);
+  --settings-panel-shadow: rgba(0, 0, 0, 0.4);
   --hljs-theme: 'github-dark';
 }
 
-[data-theme="system"] {
+[data-theme='system'] {
   --hljs-theme: 'github';
 }
 
 @media (prefers-color-scheme: dark) {
-  [data-theme="system"] {
+  [data-theme='system'] {
     --bg: #0d1117;
     --text: #c9d1d9;
     --text-muted: #8b949e;
@@ -76,25 +76,27 @@
     --hr-color: #21262d;
     --table-border: #30363d;
     --table-header-bg: #161b22;
-    --code-bg: rgba(240,246,252,0.08);
+    --code-bg: rgba(240, 246, 252, 0.08);
     --pre-bg: #161b22;
     --pre-text: #c9d1d9;
     --btn-bg: #c9d1d9;
     --btn-text: #0d1117;
     --btn-hover: #b1bac4;
     --btn-active: #8b949e;
-    --drop-bg: rgba(13,17,23,0.9);
+    --drop-bg: rgba(13, 17, 23, 0.9);
     --drop-text: #c9d1d9;
     --settings-icon: #8b949e;
     --settings-icon-hover: #c9d1d9;
     --settings-panel-bg: #161b22;
     --settings-panel-border: #30363d;
-    --settings-panel-shadow: rgba(0,0,0,0.3);
+    --settings-panel-shadow: rgba(0, 0, 0, 0.3);
     --hljs-theme: 'github-dark';
   }
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -107,7 +109,9 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 #app {
@@ -206,12 +210,29 @@ body {
   transition: color 0.2s;
 }
 
-.markdown-body h1 { font-size: 2rem; border-bottom: 1px solid var(--heading-border); padding-bottom: 0.3rem; }
-.markdown-body h2 { font-size: 1.65rem; border-bottom: 1px solid var(--heading-border); padding-bottom: 0.25rem; }
-.markdown-body h3 { font-size: 1.35rem; }
-.markdown-body h4 { font-size: 1.15rem; }
-.markdown-body h5 { font-size: 1rem; }
-.markdown-body h6 { font-size: 0.9rem; color: var(--text-muted); }
+.markdown-body h1 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--heading-border);
+  padding-bottom: 0.3rem;
+}
+.markdown-body h2 {
+  font-size: 1.65rem;
+  border-bottom: 1px solid var(--heading-border);
+  padding-bottom: 0.25rem;
+}
+.markdown-body h3 {
+  font-size: 1.35rem;
+}
+.markdown-body h4 {
+  font-size: 1.15rem;
+}
+.markdown-body h5 {
+  font-size: 1rem;
+}
+.markdown-body h6 {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
 .markdown-body p {
   margin-bottom: 1rem;
@@ -304,7 +325,7 @@ body {
   list-style: none;
 }
 
-.markdown-body .task-list-item input[type="checkbox"] {
+.markdown-body .task-list-item input[type='checkbox'] {
   margin-right: 0.5rem;
 }
 
@@ -335,7 +356,9 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.15rem;
-  transition: color 0.15s, background 0.15s;
+  transition:
+    color 0.15s,
+    background 0.15s;
 }
 
 .settings-btn:hover {

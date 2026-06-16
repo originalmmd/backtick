@@ -1,9 +1,13 @@
-backtick (0.2.2-1) noble; urgency=medium
+backtick (0.2.2-1build1) noble; urgency=medium
 
-  * Initial release for PPA packaging
-  * Ubuntu-inspired dark theme with teal accent
-  * Example Markdown file with all rendering features
-  * Post-installation script for desktop database update
-  * File association for .md files
+  * Regenerate Cargo.lock with Rust 1.75.0 for Noble compatibility
 
- -- Robin <robin@originalmmd.com>  Mon, 15 Jun 2026 14:00:00 +0000
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 14:00:00 +0200
+
+backtick (0.2.2-1) resolute; urgency=medium
+
+  * Release 0.2.2
+  * See https://github.com/originalmmd/backtick/releases/tag/v0.2.2
+
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 12:06:08 +0200
+

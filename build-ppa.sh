@@ -14,8 +14,8 @@ fi
 SERIES="${1:-noble}"
 PPA_NAME="backtick-md"
 
-# Get version from Cargo.toml
-VERSION=$(grep '^version = ' src-tauri/Cargo.toml | cut -d'"' -f2)
+# Get version from Cargo.toml (package section only)
+VERSION=$(sed -n '/^\[package\]/,/^\[/{/^version = /p}' src-tauri/Cargo.toml | cut -d'"' -f2)
 echo "Building version: $VERSION for $SERIES"
 
 # Update changelog with current version and series
@@ -25,14 +25,14 @@ backtick ($VERSION-1) $SERIES; urgency=medium
   * Release $VERSION
   * See https://github.com/originalmmd/backtick/releases/tag/v$VERSION
 
- -- Robin <robin@originalmmd.com>  $(date -R)
+ -- Robin <originalmmd@gmail.com>  $(date -R)
 
 EOF
 
 # Build the source package
 echo ""
 echo "=== Building source package ==="
-dpkg-buildpackage -S -sa -us -uc
+dpkg-buildpackage -S -sa
 
 echo ""
 echo "=== Build complete ==="

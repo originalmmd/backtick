@@ -3,6 +3,11 @@ name = "backtick"
 version = "0.2.2"
 edition = "2021"
 description = "A razor-sharp Markdown document reader"
+homepage = "https://originalmmd.github.io/backtick"
+repository = "https://github.com/originalmmd/backtick"
+license = "MIT"
+authors = ["Robin <originalmmd@gmail.com>"]
+readme = "../README.md"
 
 [lib]
 name = "backtick_lib"
@@ -24,3 +29,6 @@ version = "=0.3.36"
 
 [target.'cfg(windows)'.dependencies]
 winreg = "0.52"
+
+[dev-dependencies]
+tempfile = "3"

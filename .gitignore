@@ -11,3 +11,5 @@ test.md
 *.buildinfo
 *.dsc
 *.tar.gz
+*.tar.xz
+debian/files
