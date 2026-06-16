@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backtick Markdown Reader — A razor-sharp Markdown document reader</title>
+  <meta name="description" content="Backtick is an uncompromisingly minimal desktop Markdown reader built on Tauri. Under 10MB, near-zero RAM, instant startup. 100% offline, no analytics, MIT licensed.">
+  <meta property="og:title" content="Backtick Markdown Reader">
+  <meta property="og:description" content="A razor-sharp, zero-bloat Markdown document reader for Linux, macOS, and Windows.">
+  <meta property="og:url" content="https://originalmmd.github.io/backtick/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://originalmmd.github.io/backtick/icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Backtick Markdown Reader">
+  <meta name="twitter:description" content="A razor-sharp, zero-bloat Markdown document reader for Linux, macOS, and Windows.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <img src="icon.png" alt="Backtick" class="logo" width="80" height="80">
+      <h1>Backtick</h1>
+      <p class="tagline">A razor-sharp Markdown document reader</p>
+      <p class="subtitle">Blazingly fast &bull; Under 10MB &bull; 100% offline</p>
+      <div class="buttons">
+        <a href="#download" class="btn btn-primary">Download</a>
+        <a href="https://github.com/originalmmd/backtick" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <h2>About</h2>
+      <p class="description">
+        Backtick is an uncompromisingly minimal desktop utility built for developers, writers,
+        and technical readers who need a fast, standalone way to view <code>.md</code> files
+        without spinning up a heavy IDE or a resource-hogging Electron wrapper.
+      </p>
+      <p>
+        Built on <a href="https://tauri.app">Tauri</a>, Backtick pairs a high-performance Rust
+        backend with the operating system's native Webview rendering engine, resulting in a tiny
+        binary size, near-zero RAM footprint, and instant startup.
+      </p>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Startup</h3>
+          <p>Launches in a fraction of a second. No splash screens, no waiting, no bloat.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📦</div>
+          <h3>Under 10MB</h3>
+          <p>Built on Tauri with a Rust backend and native webview. Tiny footprint, massive performance.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <h3>100% Offline &amp; Private</h3>
+          <p>No telemetry, no analytics, no network requests. Your documents stay on your machine.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <h3>Syntax Highlighting</h3>
+          <p>Beautiful code blocks powered by highlight.js with support for dozens of languages.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Mermaid Diagrams</h3>
+          <p>Render flowcharts, sequence diagrams, Gantt charts, and more directly in your documents.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌙</div>
+          <h3>Dark Mode</h3>
+          <p>Easy on the eyes with a carefully crafted dark theme inspired by Ubuntu's color palette.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <h2>Download Backtick</h2>
+      <p class="section-subtitle">Available for Linux, macOS, and Windows. All binaries are code-signed via the <a href="https://signpath.io/solutions/open-source-community">SignPath Foundation</a> to ensure authenticity and integrity.</p>
+
+      <div class="install-grid">
+        <div class="install-card">
+          <h3>Linux</h3>
+          <div class="platform-detail">
+            <h4>Ubuntu / Debian (APT)</h4>
+            <pre><code>sudo add-apt-repository ppa:originalmmd/backtick-md
+sudo apt update
+sudo apt install backtick</code></pre>
+          </div>
+          <div class="platform-detail">
+            <h4>Arch Linux (AUR)</h4>
+            <pre><code>paru -S backtick-bin</code></pre>
+          </div>
+          <div class="platform-detail">
+            <h4>Flatpak</h4>
+            <pre><code>flatpak install flathub app.backtick.Reader</code></pre>
+          </div>
+          <div class="platform-detail">
+            <h4>AppImage</h4>
+            <pre><code>chmod +x Backtick-*.AppImage
+./Backtick-*.AppImage</code></pre>
+          </div>
+          <a href="https://github.com/originalmmd/backtick/releases/latest" class="btn btn-small">Download .deb / .rpm / .AppImage</a>
+        </div>
+        <div class="install-card">
+          <h3>macOS</h3>
+          <div class="platform-detail">
+            <h4>Homebrew</h4>
+            <pre><code>brew install backtick</code></pre>
+          </div>
+          <div class="platform-detail">
+            <h4>Manual</h4>
+            <p>Download the <code>.dmg</code>, mount it, and drag Backtick to your Applications folder.</p>
+          </div>
+          <a href="https://github.com/originalmmd/backtick/releases/latest" class="btn btn-small">Download .dmg</a>
+        </div>
+        <div class="install-card">
+          <h3>Windows</h3>
+          <div class="platform-detail">
+            <h4>Installer</h4>
+            <p>Download the <code>.msi</code> installer and run it. Backtick will appear in the Start Menu.</p>
+          </div>
+          <div class="platform-detail">
+            <h4>Winget</h4>
+            <pre><code>winget install backtick</code></pre>
+          </div>
+          <a href="https://github.com/originalmmd/backtick/releases/latest" class="btn btn-small">Download .msi</a>
+        </div>
+      </div>
+
+      <div class="all-releases">
+        <a href="https://github.com/originalmmd/backtick/releases" class="btn">View all releases on GitHub</a>
+      </div>
+    </section>
+
+    <section class="build" id="build">
+      <h2>Build from source</h2>
+      <pre><code>git clone https://github.com/originalmmd/backtick.git
+cd backtick
+npm install
+npm run tauri dev      # Run in development mode
+npm run tauri build    # Build for production</code></pre>
+    </section>
+
+    <section class="reputation" id="reputation">
+      <h2>Project status</h2>
+      <div class="badge-grid">
+        <div class="badge">
+          <span class="badge-num">MIT</span>
+          <span class="badge-label">License</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">Rust</span>
+          <span class="badge-label">Backend</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">Tauri v2</span>
+          <span class="badge-label">Framework</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">Cross-platform</span>
+          <span class="badge-label">Linux &bull; macOS &bull; Windows</span>
+        </div>
+      </div>
+      <p class="reputation-text">
+        Backtick is an open-source project maintained by the community.
+        Visit the <a href="https://github.com/originalmmd/backtick">GitHub repository</a>
+        for stars, issues, contribution guidelines, and release history.
+      </p>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <h2>Privacy Policy</h2>
+      <p>Backtick does not collect, store, transmit, or share any user data.</p>
+      <ul>
+        <li>No telemetry, analytics, or crash reporting.</li>
+        <li>No network requests or internet connectivity required.</li>
+        <li>No account creation, logins, or user registration.</li>
+        <li>All files are opened and rendered locally on your machine.</li>
+      </ul>
+      <p>Because Backtick is 100% offline and makes no network connections, there is nothing to track, log, or transmit. Your documents and reading habits remain entirely your own.</p>
+    </section>
+
+    <section class="license" id="license">
+      <h2>License</h2>
+      <p>Backtick is open source under the <a href="https://github.com/originalmmd/backtick/blob/main/LICENSE">MIT License</a>.</p>
+      <p class="tech-stack">Built with <a href="https://tauri.app">Tauri</a>, <a href="https://marked.js.org">marked</a>, <a href="https://highlightjs.org">highlight.js</a>, and <a href="https://mermaid.js.org">Mermaid</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/originalmmd/backtick">GitHub</a> &middot;
+      <a href="https://github.com/originalmmd/backtick/issues">Issues</a> &middot;
+      <a href="https://github.com/originalmmd/backtick/releases">Releases</a> &middot;
+      <a href="#privacy">Privacy</a>
+    </p>
+    <p class="copyright">Copyright &copy; 2026 Robin. MIT License.</p>
+    <p class="signpath-notice">Windows and macOS binaries are code-signed via the <a href="https://signpath.io/solutions/open-source-community">SignPath Foundation</a>.</p>
+  </footer>
+</body>
+</html>

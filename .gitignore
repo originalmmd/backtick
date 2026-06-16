@@ -6,3 +6,8 @@ src-tauri/target/
 .DS_Store
 Thumbs.db
 test.md
+*.deb
+*.changes
+*.buildinfo
+*.dsc
+*.tar.gz

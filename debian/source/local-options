@@ -1,0 +1,1 @@
+extend-diff-ignore = ^node_modules/|^dist/|^src-tauri/target/|^\.git/
