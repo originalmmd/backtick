@@ -56,7 +56,7 @@
     },
     "windows": {
       "wix": {
-        "fragments": [
+        "fragmentPaths": [
           "wix/license.wxs"
         ]
       }
