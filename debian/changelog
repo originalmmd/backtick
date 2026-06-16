@@ -1,7 +1,13 @@
-backtick (0.2.2-1) noble; urgency=medium
+backtick (0.2.2-1build1) noble; urgency=medium
+
+  * Regenerate Cargo.lock with Rust 1.75.0 for Noble compatibility
+
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 14:00:00 +0200
+
+backtick (0.2.2-1) resolute; urgency=medium
 
   * Release 0.2.2
   * See https://github.com/originalmmd/backtick/releases/tag/v0.2.2
 
- -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 11:43:45 +0200
+ -- Robin <originalmmd@gmail.com>  Tue, 16 Jun 2026 12:06:08 +0200
 

@@ -1,104 +1,119 @@
 # Backtick
 
+[![CI](https://github.com/originalmmd/backtick/actions/workflows/ci.yml/badge.svg)](https://github.com/originalmmd/backtick/actions/workflows/ci.yml)
+[![Release](https://github.com/originalmmd/backtick/actions/workflows/release.yml/badge.svg)](https://github.com/originalmmd/backtick/actions/workflows/release.yml)
+[![MIT License](https://img.shields.io/github/license/originalmmd/backtick)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/originalmmd/backtick)](https://github.com/originalmmd/backtick/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/originalmmd/backtick/total)](https://github.com/originalmmd/backtick/releases)
+[![Tauri](https://img.shields.io/badge/built%20with-Tauri-16a34a)](https://tauri.app)
+
 > A razor-sharp, zero-bloat Markdown document reader. You open a file, it renders it perfectly. That's it.
 
-[Latest Release](https://github.com/originalmmd/backtick/releases/latest) · [Download Example](https://raw.githubusercontent.com/originalmmd/backtick/main/example.md)
-
-Backtick is an uncompromisingly minimal desktop utility built for developers, writers, and technical readers who need a fast, standalone way to view `.md` files without spinning up a heavy IDE or a resource-hogging Electron wrapper.
+[Latest Release](https://github.com/originalmmd/backtick/releases/latest) · [Download Example](https://raw.githubusercontent.com/originalmmd/backtick/main/example.md) · [Website](https://originalmmd.github.io/backtick) · [Contributing](CONTRIBUTING.md)
 
 ---
 
-## ⚡ The Tauri Advantage: Lean & Hyper-Fast
+## Screenshots
 
-Most modern desktop apps are essentially stripped-down web browsers that swallow hundreds of megabytes of RAM just to show you text. Backtick throws that out.
-
-Built on **Tauri**, Backtick pairs a high-performance Rust backend with the operating system's native Webview rendering engine.
-
-* **Tiny Binary Size:** Under 10MB across all operating systems.
-* **Near-Zero RAM Footprint:** Uses a fraction of the memory consumed by Electron-based readers.
-* **Instant Start:** Launches in milliseconds when you open a document.
+![Backtick screenshot](docs/screenshot.png)
 
 ---
 
-## 🛠️ Native OS Integration
+## Features
 
-Backtick isn't just a sandboxed app; it behaves like a native system component right out of the box during installation.
-
-### File Association (`.md`)
-
-During setup, you can optionally set Backtick as your default system viewer for all Markdown files. Double-clicking any `.md` file in your file explorer instantly opens it rendered in Backtick.
-
-### "Read" Context Menu
-
-Backtick hooks natively into your Operating System's context menu. Right-click any file or folder to instantly access the **"Read with Backtick"** shortcut for lightning-fast previews.
+- **Instant Startup** — Launches in milliseconds. No splash screens, no waiting.
+- **Under 10MB** — Built on Tauri with a Rust backend and native webview.
+- **100% Offline & Private** — No telemetry, no analytics, no network requests.
+- **Syntax Highlighting** — Beautiful code blocks via highlight.js with dozens of languages.
+- **Mermaid Diagrams** — Render flowcharts, sequence diagrams, Gantt charts, and more.
+- **Dark Mode** — System-aware with manual light/dark override.
+- **File Association** — Double-click any `.md` file to open in Backtick.
+- **Context Menu** — Right-click any file/folder for "Read with Backtick".
+- **Drag & Drop** — Drag `.md` files onto the window to open them.
+- **Open Dialog** — Ctrl+O (or Cmd+O) to browse and open files.
+- **Single Instance** — Opening a file while Backtick is running opens it in the existing window.
 
 ---
 
-## 📦 Cross-Platform Support & Installation
-
-Backtick targets native architectures across Windows, macOS, and Linux.
-
-### Windows
-
-Download the lightweight native installer (`.msi` or `.exe`).
-
-* Supports automatic `.md` file association.
-* Installs the native Windows Explorer context menu entry.
-
-### macOS
-
-Available as a universal `.dmg` supporting both Intel and Apple Silicon (`M1/M2/M3/M4`).
-
-* Integrates with macOS Finder Quick Actions and "Open With" menus.
+## Installation
 
 ### Linux
 
-We believe in native package management. Backtick is distributed via standard system installers:
+#### Ubuntu / Debian (APT)
 
 ```bash
-# Debian / Ubuntu (APT)
+sudo add-apt-repository ppa:originalmmd/backtick-md
+sudo apt update
 sudo apt install backtick
+```
 
-# Arch Linux (AUR)
+#### Arch Linux (AUR)
+
+```bash
 paru -S backtick-bin
+```
 
-# Also available as Flatpak & AppImage
+#### Flatpak
+
+```bash
 flatpak install flathub app.backtick.Reader
+```
 
+#### AppImage
+
+Download `Backtick-*.AppImage` from the [latest release](https://github.com/originalmmd/backtick/releases/latest), then:
+
+```bash
+chmod +x Backtick-*.AppImage
+./Backtick-*.AppImage
+```
+
+### macOS
+
+#### Homebrew
+
+```bash
+brew install backtick
+```
+
+#### Manual
+
+Download the `.dmg` from the [latest release](https://github.com/originalmmd/backtick/releases/latest), mount it, and drag Backtick to Applications.
+
+### Windows
+
+#### Installer
+
+Download the `.msi` from the [latest release](https://github.com/originalmmd/backtick/releases/latest) and run it.
+
+#### Winget
+
+```bash
+winget install backtick
 ```
 
 ---
 
-## 🕊️ Open Source to the Core
+## Building from Source
 
-Backtick is free, open-source software licensed under the MIT License. We built this app because tools shouldn't overreach.
-
-* **No Analytics:** We track zero clicks, zero open events, and zero usage metrics.
-* **100% Offline:** Backtick runs entirely local on your machine. It has no networking permissions, doesn't load external fonts or telemetry, and never makes a single call out to the internet.
-* **Community Driven:** No commercial tiers, no premium extensions, no monetization. It is built by the community, for the community.
-
-### Contributing & Building from Source
-
-Prerequisites: Ensure you have `Rust`, `Node.js`, and the `Tauri CLI` installed.
+Prerequisites: [Rust](https://rustup.rs), [Node.js](https://nodejs.org), and system libraries (see [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/)).
 
 ```bash
-# Clone the repository
 git clone https://github.com/originalmmd/backtick.git
 cd backtick
-
-# Install dependencies
 npm install
-
-# Run in development mode
-npm run tauri dev
-
-# Build production binaries for your local OS
-npm run tauri build
-
+npm run tauri dev      # Development mode
+npm run tauri build    # Production build
 ```
 
 ---
 
-## 📄 License
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow, code style, and pull request guidelines.
+
+---
+
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
