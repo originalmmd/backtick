@@ -1,0 +1,11 @@
+[ppa]
+fqdn = ppa.launchpad.net
+method = ftp
+incoming = ~originalmmd/ubuntu/
+login = anonymous
+
+[ppa-backtick-md]
+fqdn = ppa.launchpad.net
+method = ftp
+incoming = ~originalmmd/ubuntu/backtick-md
+login = anonymous

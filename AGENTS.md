@@ -1,3 +1,6 @@
+# Stack
+- Desktop: tauri-app
+
 # Agent notes
 
 - Project: Backtick — Tauri v2 Markdown reader
